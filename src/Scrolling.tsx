@@ -22,9 +22,6 @@ export class ScrollingProvider extends React.Component<ScrollingProps,ScrollingS
     }
 
     private onScroll() {
-        console.log("STATE:" + this.state.scroll)
-        console.log("NEW:" + window.scrollY)
-
         if (!this.ticking && this.state.scroll != window.scrollY ) {
             var component = this;
             window.requestAnimationFrame(function() {
