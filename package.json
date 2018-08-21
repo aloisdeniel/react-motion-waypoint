@@ -6,13 +6,11 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && cd docs && webpack"
+    "build": "tsc --sourcemap && cd docs && npm run build",
+    "build-release": "tsc"
   },
   "author": "Aloïs Deniel",
   "dependencies": {
-    "@types/react": "^16.4.9",
-    "@types/react-dom": "^16.0.7",
-    "@types/react-motion": "0.0.27",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-motion": "^0.5.2"
@@ -20,5 +18,11 @@
   "files": [
     "lib",
     "src"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-motion": "0.0.27",
+    "typescript": "^3.0.1"
+  }
 }
