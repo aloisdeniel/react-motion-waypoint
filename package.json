@@ -10,9 +10,6 @@
   },
   "author": "Aloïs Deniel",
   "dependencies": {
-    "@types/react": "^16.4.9",
-    "@types/react-dom": "^16.0.7",
-    "@types/react-motion": "0.0.27",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-motion": "^0.5.2"
@@ -20,5 +17,10 @@
   "files": [
     "lib",
     "src"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-motion": "0.0.27"
+  }
 }
