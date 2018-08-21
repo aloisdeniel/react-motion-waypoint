@@ -6,7 +6,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --sourcemap && cd docs && npm run build"
+    "build": "tsc --sourcemap && cd docs && npm run build",
+    "build-release": "tsc"
   },
   "author": "Aloïs Deniel",
   "dependencies": {
