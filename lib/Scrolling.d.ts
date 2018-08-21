@@ -1,5 +1,5 @@
 import * as React from 'react';
-export declare var ScrollingConsumer: React.ComponentType<React.ConsumerProps<number>>;
+export declare const ScrollingConsumer: React.ComponentType<React.ConsumerProps<number>>;
 /**
  * A component that propagate the current window scrolling position to its
  * descendants.
@@ -9,7 +9,7 @@ export declare var ScrollingConsumer: React.ComponentType<React.ConsumerProps<nu
  */
 export declare class ScrollingProvider extends React.Component<ScrollingProps, ScrollingState> {
     private ticking;
-    constructor(props: any);
+    constructor(props: ScrollingProps);
     private onScroll;
     componentDidMount(): void;
     componentWillUnmount(): void;

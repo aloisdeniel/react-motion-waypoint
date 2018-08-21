@@ -3,7 +3,7 @@ export declare type Size = {
     width: number;
     height: number;
 };
-export declare var ResizingConsumer: React.ComponentType<React.ConsumerProps<Size>>;
+export declare const ResizingConsumer: React.ComponentType<React.ConsumerProps<Size>>;
 /**
  * A component that propagate the current window size to its
  * descendants.
@@ -13,7 +13,7 @@ export declare var ResizingConsumer: React.ComponentType<React.ConsumerProps<Siz
  */
 export declare class ResizingProvider extends React.Component<ResizingProps, Size> {
     private ticking;
-    constructor(props: any);
+    constructor(props: ResizingProps);
     private onResize;
     componentDidMount(): void;
     componentWillUnmount(): void;
