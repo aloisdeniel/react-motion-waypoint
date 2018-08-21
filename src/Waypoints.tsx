@@ -94,14 +94,14 @@ export class Waypoints {
      * @param scroll - The absolute scroll position.
      */
     valueAt(scroll:number) {
-        var toIndex = this.items.findIndex((item) => item.scroll >= scroll);
+        const toIndex = this.items.findIndex((item) => item.scroll >= scroll);
         if(toIndex < 0) {
             return this.items[this.items.length - 1].style;
         }
         
-        var fromIndex = toIndex > 0 ? toIndex - 1 : 0;
-        var from = this.items[fromIndex];
-        var to = this.items[toIndex];
+        const fromIndex = toIndex > 0 ? toIndex - 1 : 0;
+        const from = this.items[fromIndex];
+        const to = this.items[toIndex];
         return from.interpolate(scroll, to);
     }
 
@@ -119,7 +119,7 @@ export class WaypointMotion extends React.Component<WaypointMotionProps> {
     render() {
         return (<ScrollingConsumer>
             {scroll => {
-                var style = this.props.waypoints.valueAt(scroll);
+                const style = this.props.waypoints.valueAt(scroll);
                 return (
                     <Motion style={style}>
                         {(interpolatingStyle:any) => this.props.children(interpolatingStyle)}
@@ -151,17 +151,17 @@ class Waypoint {
     }
 
     interpolate(scroll: number, to:Waypoint) {
-        var totalDelta = to.scroll - this.scroll;
-        var amount = totalDelta == 0 ? 0 : Math.max(0.0, Math.min(1.0,(scroll - this.scroll) / totalDelta));
-        var result : any = {};
+        const totalDelta = to.scroll - this.scroll;
+        const amount = totalDelta === 0 ? 0 : Math.max(0.0, Math.min(1.0,(scroll - this.scroll) / totalDelta));
+        const result : any = {};
         for (let key in this.style) {
             const fromValue = this.style[key];
-            var toValue = to.style[key];
-            if(toValue == undefined) {
+            let toValue = to.style[key];
+            if(toValue === undefined) {
                 toValue = fromValue;
             }
-            var valueDelta = toValue - fromValue;
-            var current = (fromValue == toValue) ? fromValue : (fromValue + amount * valueDelta);
+            const valueDelta = toValue - fromValue;
+            const current = (fromValue === toValue) ? fromValue : (fromValue + amount * valueDelta);
             result[key] = spring(current);
         }
         return result;

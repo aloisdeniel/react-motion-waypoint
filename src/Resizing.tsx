@@ -6,7 +6,7 @@ const defaultSize : Size = { width: window.innerWidth, height: window.innerHeigh
 
 const ResizingContext = React.createContext(defaultSize);
 
-export var ResizingConsumer = ResizingContext.Consumer;
+export const ResizingConsumer = ResizingContext.Consumer;
 
 /**
  * A component that propagate the current window size to its
@@ -19,15 +19,15 @@ export class ResizingProvider extends React.Component<ResizingProps,Size> {
 
     private ticking = false;
 
-    constructor(props:any){
+    constructor(props:ResizingProps){
         super(props);
         this.state = defaultSize;
         this.onResize = this.onResize.bind(this);
     }
 
     private onResize() {
-        if (!this.ticking && (this.state.width != window.innerWidth || this.state.height != window.innerHeight)) {
-            var component = this;
+        if (!this.ticking && (this.state.width !== window.innerWidth || this.state.height !== window.innerHeight)) {
+            const component = this;
             window.requestAnimationFrame(function() {
                 component.setState({ width: window.innerWidth, height: window.innerHeight })
                 component.ticking = false;
